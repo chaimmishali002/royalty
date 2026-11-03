@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>רויאלטי מגייסת כוכב.ת מכירות</title>
+<meta name="description" content="רשת רויאלטי דרושים.ות אנשים.ות איכותיים.ות שיצטרפו למשפחה שלנו ויביאו את הזוהר לסניפים שלנו.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '729388007128079');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=729388007128079&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+  :root{
+    --bg:#e8dbc2;
+    --gold:#b48a3c;
+    --ink:#111;
+    --muted:#6b6255;
+    --line:#2a2a2a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg)}
+  body{font-family:'Heebo',Arial,sans-serif;color:var(--ink);min-height:100vh}
+
+  .page{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+
+  /* ---- images column (left side in RTL) ---- */
+  .media{order:2;display:grid;grid-template-rows:42% 58%;min-height:100vh;background:#cbb89a}
+  .media div{background-size:cover;background-position:center}
+  .media .img1{background-image:url('images/hero-1.jpg')}
+  .media .img2{background-image:url('images/hero-2.jpg')}
+
+  /* ---- content column ---- */
+  .content{order:1;padding:56px 32px 28px;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .logo{width:160px;height:auto;margin-bottom:46px}
+  .logo-fallback{display:none;font-family:Georgia,'Times New Roman',serif;color:#2b2b2b;margin-bottom:46px;line-height:1}
+  .logo-fallback b{display:block;font-size:30px;letter-spacing:2px;font-weight:700}
+  .logo-fallback small{font-size:10px;letter-spacing:.5px}
+
+  h1{font-size:clamp(32px,4.2vw,58px);font-weight:900;line-height:1.1;margin-bottom:18px}
+  .sub{font-size:17px;margin-bottom:40px}
+
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:100%;max-width:600px;margin-bottom:28px}
+  .feature svg{width:24px;height:24px;fill:var(--gold);margin-bottom:12px}
+  .feature span{display:block;font-size:13px;line-height:1.45}
+  .feature strong{display:block;font-size:13px;font-weight:700}
+
+  h2{font-size:22px;font-weight:800;margin-bottom:16px}
+
+  form{width:100%;max-width:890px;display:flex;flex-direction:column;gap:9px;text-align:right}
+  .field{width:100%;height:38px;border:1px solid var(--line);border-radius:3px;background:#fff;
+    padding:0 13px;font-family:inherit;font-size:14px;color:var(--ink)}
+  .field::placeholder{color:#555}
+  .field:focus{outline:2px solid var(--gold);outline-offset:0}
+  select.field{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0h10L5 6z' fill='%23111'/></svg>");
+    background-repeat:no-repeat;background-position:left 12px center;padding-left:32px}
+  select.field:invalid{color:#555}
+
+  .cv-note{font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:8px}
+  .upload{position:relative;display:flex;align-items:center;gap:8px;min-height:42px;border:1px solid var(--line);
+    border-radius:3px;background:#fff;padding:5px 12px;cursor:pointer}
+  .upload input{position:absolute;inset:0;opacity:0;cursor:pointer}
+  .upload svg{width:14px;height:14px;fill:#777;flex-shrink:0}
+  .upload b{display:block;font-size:11.5px;font-weight:700}
+  .upload small{display:block;font-size:9.5px;color:#888}
+  .upload.has-file{border-color:var(--gold)}
+
+  .error{color:#b00020;font-size:12.5px;min-height:0}
+  .error:empty{display:none}
+
+  button{height:38px;border:0;border-radius:3px;background:#000;color:var(--gold);font-family:inherit;
+    font-size:14px;font-weight:700;cursor:pointer;margin-top:4px;transition:opacity .2s}
+  button:hover{opacity:.85}
+  button:disabled{opacity:.6;cursor:wait}
+
+  .hp{position:absolute;left:-9999px}
+
+  @media (max-width:900px){
+    .page{grid-template-columns:1fr}
+    .media{order:0;min-height:0;grid-template-rows:none;grid-template-columns:1fr 1fr;height:220px}
+    .content{padding:34px 16px 28px}
+    .logo,.logo-fallback{margin-bottom:28px}
+    .sub{font-size:15px;margin-bottom:28px}
+    .features{grid-template-columns:repeat(2,1fr);gap:22px 12px}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <section class="content">
+    <img class="logo" src="images/logo.png" alt="Royalty Jewellery &amp; Watches"
+         onerror="this.style.display='none';document.querySelector('.logo-fallback').style.display='block'">
+    <div class="logo-fallback"><b>ROYALTY</b><small>JEWELLERY &amp; WATCHES</small></div>
+
+    <h1>רויאלטי מגייסת כוכב.ת מכירות</h1>
+    <p class="sub">לרשת רויאלטי דרושים.ות אנשים.ות איכותיים.ות שיצטרפו למשפחה שלנו ויביאו את הזוהר לסניפים שלנו.</p>
+
+    <div class="features">
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M3 9l1 10h16l1-10-5 4-4-7-4 7z"/><rect x="4" y="20" width="16" height="2"/></svg>
+        <span>תנאים מעולים</span><strong>וסביבה מלכותית</strong>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M7 3h10l4 6-9 12L3 9zm1.2 2L6 8.5h3.4zm7.6 0l-1.2 3.5H18zM12 5.4L10.8 8.5h2.4zM6 10.5l4.6 6.2-1.6-6.2zm5 0l1 7.3 1-7.3zm4 0l-1.6 6.2 4.6-6.2z"/></svg>
+        <span>אנשי מכירות</span><strong>מנוסים</strong>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.2"/><circle cx="5" cy="9" r="2.4"/><circle cx="19" cy="9" r="2.4"/><path d="M6 19c0-3.6 2.7-6 6-6s6 2.4 6 6zM0.5 18c0-2.6 1.8-4.4 4.3-4.4 1 0 1.8.3 2.4.7A7.8 7.8 0 0 0 5 18zm23 0H19a7.8 7.8 0 0 0-2.2-3.7c.6-.4 1.4-.7 2.4-.7 2.5 0 4.3 1.8 4.3 4.4z"/></svg>
+        <span>עתודה</span><strong>ניהולית</strong>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M3 4h18l1.5 5c0 1.6-1.3 2.8-2.8 2.8-1.2 0-2.2-.7-2.6-1.7-.4 1-1.4 1.7-2.6 1.7s-2.2-.7-2.5-1.7c-.4 1-1.4 1.7-2.6 1.7S6.2 11.1 5.9 10c-.4 1-1.4 1.7-2.6 1.7C1.8 11.8.5 10.6.5 9zM3 13.3c.8.3 1.6.3 2.4 0V18h5v-4h3.2v4h5v-4.7c.8.3 1.6.3 2.4 0V20H3z"/></svg>
+        <span>מוכרים.ות</span><strong>בסניפים ברחבי הארץ</strong>
+      </div>
+    </div>
+
+    <h2>למעוניינים.ות ולפרטים נוספים — השאירו פרטים</h2>
+
+    <form id="leadForm" action="https://formsubmit.co/Hr@omtime.co.il" method="POST" enctype="multipart/form-data" novalidate>
+      <!-- FormSubmit settings -->
+      <input type="hidden" name="_subject" value="פנייה חדשה מדף הגיוס – רויאלטי">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" id="nextUrl" value="">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+
+      <input class="field" type="text"  name="שם מלא"       placeholder="שם מלא"      required autocomplete="name">
+      <input class="field" type="tel"   name="טלפון"         placeholder="טלפון"        required autocomplete="tel" inputmode="tel">
+      <input class="field" type="email" name="email"         placeholder="דואר אלקטרוני" required autocomplete="email">
+      <input class="field" type="text"  name="עיר מגורים"   placeholder="עיר מגורים"  required>
+
+      <select class="field" name="ניסיון במכירות (2+ שנים)" required>
+        <option value="" disabled selected>האם יש לך ניסיון של לפחות שנתיים במכירות (ביוטי / יופי / קוסמטיקה / אופנה)?</option>
+        <option>כן</option>
+        <option>לא</option>
+      </select>
+
+      <select class="field" name="סניף מבוקש" required>
+        <option value="" disabled selected>באיזה סניף תרצו לעבוד?</option>
+        <option>בית שמש</option>
+        <option>מודיעין</option>
+        <option>ירושלים</option>
+        <option>מעלה אדומים</option>
+        <option>תל אביב</option>
+        <option>גבעתיים</option>
+        <option>רמת גן</option>
+        <option>הרצליה</option>
+        <option>לא מצאתי סניף מתאים</option>
+      </select>
+
+      <p class="cv-note">קורות חיים (לא חובה)<br>אפשר לצרף PDF / DOC / DOCX עד 5MB</p>
+      <label class="upload" id="uploadBox">
+        <svg viewBox="0 0 24 24"><path d="M16.5 6v11.5a4.5 4.5 0 0 1-9 0V5a3 3 0 0 1 6 0v10.5a1.5 1.5 0 0 1-3 0V6H9v9.5a3 3 0 0 0 6 0V5a4.5 4.5 0 0 0-9 0v12.5a6 6 0 0 0 12 0V6z"/></svg>
+        <span><b id="uploadTitle">צרפו קורות חיים</b><small id="uploadHint">לחצו לבחירת קובץ</small></span>
+        <input type="file" name="attachment" id="cv" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+      </label>
+
+      <p class="error" id="formError" role="alert"></p>
+      <button type="submit" id="submitBtn">שלחו לי פרטים</button>
+    </form>
+  </section>
+
+  <section class="media" aria-hidden="true">
+    <div class="img1"></div>
+    <div class="img2"></div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var form = document.getElementById('leadForm');
+  var cv = document.getElementById('cv');
+  var err = document.getElementById('formError');
+  var btn = document.getElementById('submitBtn');
+  var MAX = 5 * 1024 * 1024;
+
+  // thank-you page (absolute URL, required by FormSubmit)
+  document.getElementById('nextUrl').value =
+    new URL('thank-you.html', window.location.href).href;
+
+  cv.addEventListener('change', function(){
+    var box = document.getElementById('uploadBox');
+    if (cv.files.length){
+      document.getElementById('uploadTitle').textContent = cv.files[0].name;
+      document.getElementById('uploadHint').textContent = 'לחצו להחלפת קובץ';
+      box.classList.add('has-file');
+    } else {
+      document.getElementById('uploadTitle').textContent = 'צרפו קורות חיים';
+      document.getElementById('uploadHint').textContent = 'לחצו לבחירת קובץ';
+      box.classList.remove('has-file');
+    }
+  });
+
+  form.addEventListener('submit', function(e){
+    err.textContent = '';
+    var f = form.elements;
+
+    if (!f['שם מלא'].value.trim()) return fail(e, 'נא למלא שם מלא');
+    var phone = f['טלפון'].value.replace(/[\s\-()]/g,'');
+    if (!/^(\+972|0)5\d{8}$|^(\+972|0)[2-9]\d{7}$/.test(phone)) return fail(e, 'נא להזין מספר טלפון תקין');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f['email'].value.trim())) return fail(e, 'נא להזין כתובת מייל תקינה');
+    if (!f['עיר מגורים'].value.trim()) return fail(e, 'נא למלא עיר מגורים');
+    if (!f['ניסיון במכירות (2+ שנים)'].value) return fail(e, 'נא לבחור האם יש ניסיון במכירות');
+    if (!f['סניף מבוקש'].value) return fail(e, 'נא לבחור סניף');
+
+    if (cv.files.length){
+      var file = cv.files[0];
+      if (!/\.(pdf|docx?)$/i.test(file.name)) return fail(e, 'ניתן לצרף רק קבצי PDF / DOC / DOCX');
+      if (file.size > MAX) return fail(e, 'הקובץ גדול מ-5MB');
+    }
+
+    if (window.fbq) fbq('track', 'Lead', {content_name: 'Royalty Recruitment'});
+    btn.disabled = true;
+    btn.textContent = 'שולח...';
+  });
+
+  function fail(e, msg){ e.preventDefault(); err.textContent = msg; return false; }
+})();
+</script>
+</body>
+</html>
