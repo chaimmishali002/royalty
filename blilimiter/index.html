@@ -999,7 +999,7 @@ function startAuto(){if(reduce||auto||playing)return;auto=setInterval(()=>{if(!p
 
 /* ---------- lazy embeds (spotify + reels) ---------- */
 function mountSpotify(){const el=$("#spotifyEmbed");if(el.dataset.done)return;el.dataset.done=1;el.innerHTML=`<iframe src="${el.dataset.src}" title="בלי לימיטר בספוטיפיי" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`}
-function mountReels(){const r=$("#reels");if(r.dataset.done)return;r.dataset.done=1;r.innerHTML=REELS.map(id=>`<div class="reel"><iframe src="https://www.instagram.com/reel/${id}/embed/" title="רילס של בלי לימיטר" loading="lazy" scrolling="no" allowtransparency="true"></iframe></div>`).join("")}
+function mountReels(){const r=$("#reels");if(r.dataset.done)return;r.dataset.done=1;r.innerHTML=REELS.map(id=>`<div class="reel"><iframe src="https://www.instagram.com/p/${id}/embed/" title="רילס של בלי לימיטר" loading="lazy" scrolling="no" allowtransparency="true"></iframe></div>`).join("")}
 $("#reels").innerHTML=REELS.map(()=>`<div class="reel"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>טוען רילס…</div></div>`).join("");
 
 /* ---------- reveal + counters ---------- */
