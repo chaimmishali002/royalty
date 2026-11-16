@@ -279,7 +279,7 @@ section{position:relative;z-index:2;padding:clamp(52px,6vw,84px) 0}
 .player .pbtn svg{width:26px;height:26px;margin-left:4px}
 .player .pbtn small{font-weight:800;font-size:15px;background:rgba(19,21,46,.65);padding:6px 14px;border-radius:99px}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(27,232,238,.55)}70%{box-shadow:0 0 0 20px rgba(27,232,238,0)}100%{box-shadow:0 0 0 0 rgba(27,232,238,0)}}
-.case-list{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.case-list{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;order:-1}
 @media (max-width:960px){.case-list{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.case-list{grid-template-columns:1fr}}
 .case{display:block;width:100%;text-align:right;padding:22px 24px;border-radius:14px;border:1px solid var(--line);background:var(--bg2);cursor:pointer;transition:border-color .25s,background .25s,box-shadow .3s}
@@ -976,13 +976,14 @@ modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
 addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeModal()});
 
 /* ---------- sponsorship player ---------- */
+SPONSORS.forEach(x=>{const i=new Image();i.src=`https://i.ytimg.com/vi/${x.id}/hqdefault.jpg`});
 const spons=$("#spons");let sel=0,auto=null,playing=false;
 $("#cases").innerHTML=SPONSORS.map((s,i)=>`<button class="case" role="tab" type="button" data-i="${i}" aria-selected="${i===0}"><span class="k">${s.k}</span><b>${s.b}</b><span>${s.d}</span><div class="prog"><i></i></div></button>`).join("");
 function selectCase(i,fromUser){
   sel=i;const s=SPONSORS[i];
   document.querySelectorAll(".case").forEach((c,j)=>c.setAttribute("aria-selected",j===i));
   const p=$("#player");p.querySelector("iframe")?.remove();$("#playerBtn").hidden=false;playing=false;spons.classList.remove("playing");
-  const img=$("#playerImg");img.style.opacity=0;setTimeout(()=>{img.src=thumb(s.id);img.alt=`חסות ${s.b}`;img.onload=()=>img.style.opacity="";},180);
+  const img=$("#playerImg");const tok=(img._tok=(img._tok||0)+1);img.style.opacity=0;const pre=new Image();pre.onload=pre.onerror=()=>{if(img._tok!==tok)return;img.src=pre.src;img.alt=`חסות ${s.b}`;requestAnimationFrame(()=>img.style.opacity="")};setTimeout(()=>{if(img._tok===tok)pre.src=thumb(s.id)},150);
   $("#playerLbl").textContent=`צפו בשילוב של ${s.b}`;
   if(fromUser){clearInterval(auto);auto=null;play()}
 }
