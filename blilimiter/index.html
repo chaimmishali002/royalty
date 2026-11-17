@@ -189,13 +189,19 @@ section{position:relative;z-index:2;padding:clamp(52px,6vw,84px) 0}
 @media (max-width:600px){.why-grid{grid-template-columns:1fr}}
 
 /* ---------- people: host + BPM ---------- */
-.people{display:grid;grid-template-columns:1fr 1.7fr;gap:18px}
-.host-card{padding:0;border-radius:6px;background:linear-gradient(150deg,rgba(27,232,238,.07),var(--bg2) 55%,rgba(222,0,171,.09));display:grid;grid-template-columns:1fr 1fr;align-items:end;overflow:visible}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+.host-card{padding:0;border-radius:6px;background:linear-gradient(150deg,rgba(27,232,238,.07),var(--bg2) 55%,rgba(222,0,171,.09));display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;align-items:start;overflow:hidden}
 .host-txt{padding:clamp(28px,4vw,46px);min-width:0}
 .host-card>*{min-width:0}
 .host-photo{position:relative;align-self:stretch;min-height:420px}
 .host-photo::before{content:"";position:absolute;inset:12% 6% 0;background:radial-gradient(closest-side,rgba(27,232,238,.35),rgba(222,0,171,.18) 55%,transparent 75%);filter:blur(10px)}
 .host-photo img{position:absolute;bottom:0;left:0;right:0;height:calc(100% - 96px);width:100%;max-width:none;object-fit:cover;object-position:50% 0;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 18%);mask-image:linear-gradient(to top,transparent 0,#000 18%);will-change:transform}
+
+.host-card .host-photo{order:-1;min-height:clamp(260px,26vw,340px)}
+.host-card .host-photo img{top:0;bottom:auto;height:100%;object-position:50% 0}
+.host-card .host-txt{padding-top:6px}
+.host-card h3{font-size:clamp(48px,4.6vw,68px)}
+.bpm-card{align-items:flex-start}
 @media (max-width:1000px){.people{grid-template-columns:1fr}}
 @media (max-width:640px){.host-card{grid-template-columns:1fr}.host-photo{order:-1;min-height:0;display:flex;justify-content:center;padding-top:20px}.host-photo img{position:relative;height:auto;width:100%;max-width:300px}.host-txt{padding-top:0}}
 .host-card .role{font-family:var(--latin);font-weight:800;font-size:14px;letter-spacing:.14em;color:var(--pink);text-shadow:var(--glow-m)}
@@ -924,7 +930,7 @@ const SPONSORS = [
   {k:"פסטיבל", b:"Sfera Festival", d:"שילוב חסות בתוך הפרק עם Comet Collective, מול קהל הסצנה האלקטרונית.", id:"nrYzueocPWQ", start:4523},
   {k:"משקאות", b:"בירה מלכה", d:"מותג משקאות שהשתלב בתוך השיחה עם האורח, כחלק מהרגע ולא כהפסקה ממנו.", id:"E3pFDrnNIps", start:783},
   {k:"פסטיבל · פרק מיוחד", b:"Tuborg Beat", d:"פרק שלם שנבנה סביב סט ה־B2B של גניש ומישל בפסטיבל Tuborg Beat, עם הזמנה לאירוע.", id:"fZUQoWF9sGQ", start:0},
-  {k:"ציוד סאונד", b:"RØDE", d:"שילוב מוצר בפרק עם אברהם טל, מול קהל שעובד עם ציוד הקלטה.", id:"Vuvpxuk6XRk", start:90}
+  {k:"ציוד סאונד", b:"RØDE", d:"שילוב מוצר בפרק עם המפיק גל ג׳ו כהן (JO COHEN), מול קהל שעובד עם ציוד הקלטה.", id:"dykuJWO_p9o", start:567}
 ];
 const REELS = ["DMmuCX9Ih65","DAVVEdqMolp","C-7TPqANblU"];
 const AGES = [["0–17",.6],["18–22",2.6],["23–27",18.8,1],["28–34",27.7,1],["35–44",30.5,1],["45–59",15.9],["60+",1],["לא ידוע",3]];
