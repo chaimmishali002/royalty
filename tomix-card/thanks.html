@@ -219,7 +219,10 @@ a{color:#FF4D97}a:hover{color:#FFFFFF}
     if (n) document.getElementById('tyName').textContent = ' ' + n;
     if (sessionStorage.getItem('tm_lead') === '1') {
       sessionStorage.removeItem('tm_lead');
-      if (window.fbq) fbq('track', 'Lead', { content_name: 'toMix Card לעסקים' });
+      if (window.fbq) {
+        fbq('track', 'Lead', { content_name: 'toMix Card לעסקים' });
+        fbq('trackCustom', 'TomixCardB2BLead');
+      }
     }
   } catch (e) {}
 })();
