@@ -194,6 +194,7 @@ src="https://www.facebook.com/tr?id=729388007128079&ev=PageView&noscript=1"
   var err = document.getElementById('formError');
   var btn = document.getElementById('submitBtn');
   var MAX = 5 * 1024 * 1024;
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzjIpfJwHjAnCML6XzOIGWWbRLynVJWxr-9zIoyw_t0xKYp27OqRAD_fMLEsYAuR76ikg/exec';
 
   // thank-you page (absolute URL, required by FormSubmit)
   document.getElementById('nextUrl').value =
@@ -230,8 +231,54 @@ src="https://www.facebook.com/tr?id=729388007128079&ev=PageView&noscript=1"
       if (file.size > MAX) return fail(e, 'הקובץ גדול מ-5MB');
     }
 
+    // שליחה ל-Google Apps Script (גיליון + מייל ל-HR). אם נכשל – גיבוי ל-FormSubmit.
+    e.preventDefault();
     btn.disabled = true;
     btn.textContent = 'שולח...';
+
+    var qs = new URLSearchParams(location.search);
+    var data = new URLSearchParams({
+      name: f['שם מלא'].value.trim(),
+      phone: f['טלפון'].value.trim(),
+      email: f['email'].value.trim(),
+      city: f['עיר מגורים'].value.trim(),
+      experience: f['ניסיון במכירות (2+ שנים)'].value,
+      branch: f['סניף מבוקש'].value,
+      website: f['_honey'].value,
+      utm_source: qs.get('utm_source') || '',
+      utm_campaign: qs.get('utm_campaign') || '',
+      utm_content: qs.get('utm_content') || ''
+    });
+
+    function fallback(){ form.submit(); } // שליחה רגילה ל-FormSubmit
+
+    function send(){
+      var ctrl = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 45000);
+      fetch(SCRIPT_URL, { method: 'POST', body: data, signal: ctrl ? ctrl.signal : undefined })
+        .then(function(r){ return r.json(); })
+        .then(function(j){
+          clearTimeout(t);
+          if (j && j.ok) location.href = new URL('thank-you.html', location.href).href;
+          else fallback();
+        })
+        .catch(function(){ clearTimeout(t); fallback(); });
+    }
+
+    if (cv.files.length){
+      var rd = new FileReader();
+      rd.onload = function(){
+        var s = String(rd.result);
+        data.set('cv_data', s.slice(s.indexOf(',') + 1));
+        data.set('cv_name', cv.files[0].name);
+        data.set('cv_type', cv.files[0].type || 'application/octet-stream');
+        send();
+      };
+      rd.onerror = send;
+      rd.readAsDataURL(cv.files[0]);
+    } else {
+      send();
+    }
   });
 
   function fail(e, msg){ e.preventDefault(); err.textContent = msg; return false; }
